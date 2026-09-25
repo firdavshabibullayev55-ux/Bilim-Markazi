@@ -1,0 +1,6 @@
+aiogram>=3.13,<4
+python-dotenv>=1.0
+openai>=1.40
+aiohttp>=3.9
+ddgs>=9.0
+pypdf>=5.0

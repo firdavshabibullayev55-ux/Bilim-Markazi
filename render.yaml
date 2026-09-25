@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: bilim-markazi-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: CHANNEL_ID
+        sync: false
+      - key: CHANNEL_URL
+        sync: false
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_BASE_URL
+        value: https://api.openai.com/v1
+      - key: AI_MODEL
+        value: gpt-4o-mini
+      - key: DB_PATH
+        value: /var/data/education.db
+      - key: PORT
+        value: 10000
+    disk:
+      name: bilim-markazi-data
+      mountPath: /var/data
+      sizeGB: 1
